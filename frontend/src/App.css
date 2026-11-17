@@ -1,0 +1,282 @@
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.35rem;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.translator-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Fila superior: Cámara + Recuadro pequeño lateral */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.camera-card,
+.current-translation-box,
+.saved-text-frame {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.2rem;
+  background: rgba(15, 23, 42, 0.65);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.live {
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.dot.off {
+  background-color: #ef4444;
+}
+
+/* Frame de la cámara */
+.camera-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #090d16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.camera-placeholder {
+  text-align: center;
+  padding: 2rem;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.camera-icon {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+.camera-placeholder code {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: #38bdf8;
+}
+
+/* Recuadro pequeño lateral de traducción actual */
+.current-translation-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.detected-sign-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.detected-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.detected-value {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(15, 23, 42, 0.7);
+  border: 2px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px;
+  width: 100%;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  word-break: break-word;
+}
+
+/* Sección inferior: Texto guardado + Botón de audio */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.saved-text-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.saved-text-body {
+  min-height: 110px;
+  padding: 1.15rem 1.25rem;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  align-items: flex-start;
+}
+
+.saved-text-content {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.saved-text-placeholder {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Controles de audio debajo del frame */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-audio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-audio.enabled {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.btn-audio.enabled:hover {
+  background: #1d4ed8;
+}
+
+.btn-audio.disabled {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.btn-audio.disabled:hover {
+  background: #475569;
+}
+
+.audio-status-badge {
+  font-size: 0.88rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.audio-status-badge.active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.audio-status-badge.muted {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Botones auxiliares */
+.btn-secondary,
+.btn-small {
+  background: rgba(51, 65, 85, 0.8);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-secondary:hover,
+.btn-small:hover:not(:disabled) {
+  background: rgba(71, 85, 105, 0.95);
+}
+
+.btn-small:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .top-section {
+    grid-template-columns: 1fr;
+  }
+}
